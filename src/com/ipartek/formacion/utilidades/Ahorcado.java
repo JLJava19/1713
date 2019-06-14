@@ -36,7 +36,7 @@ public class Ahorcado {
 		String palabra = "";
 
 		for (int i = 0; i < palabraBuscar.length; i++) {
-			palabra = " " + palabraBuscar[i] + " ";
+			palabra = palabra + "' " + palabraBuscar[i] + " ' ";
 		}
 
 		return palabra;
@@ -70,8 +70,9 @@ public class Ahorcado {
 
 			System.out.println("Escribe un caracter: \n");
 
-			caract = sc.next().charAt(0) ;
-
+			caract = sc.next().charAt(0);
+			caract = Character.toLowerCase(caract);
+			
 			if (comprobrarCaracter(caract)) {
 				System.out.println("Muy bien \n");
 
@@ -84,11 +85,15 @@ public class Ahorcado {
 
 			acierto = comprobar();
 
-			if (intentos == 0 && !acierto) {
-				System.out.println("SE ACABO, HAS PERDIDO");
-
-			}
+			
 		} while (intentos > 0 && !acierto);
+		
+		if (intentos == 0 && !acierto) {
+			System.out.println("SE ACABO, HAS PERDIDO");
+
+		}else {
+			System.out.println("Felicidades!!!!!");
+		}
 		
 		sc.close();
 	}
