@@ -6,7 +6,7 @@ public class Ahorcado {
 	public static final int INTENTOS = 7;
 
 	private char[] palabra = { 'v', 'i', 'e', 'r', 'n', 'e', 's' };
-	public char[] palabraBuscar = new char[palabra.length];
+	private char[] palabraBuscar = new char[palabra.length];
 
 	public Ahorcado() {
 		super();
@@ -36,7 +36,7 @@ public class Ahorcado {
 		String palabra = "";
 
 		for (int i = 0; i < palabraBuscar.length; i++) {
-			palabra = palabra + "' " + palabraBuscar[i] + " ' ";
+			palabra = palabra + " " + palabraBuscar[i];
 		}
 
 		return palabra;
@@ -105,8 +105,5 @@ public class Ahorcado {
 		this.palabraBuscar[posicion] = caracterBuscar;
 	}
 
-	public char[] getPalabraBuscar() {
-		return palabraBuscar;
-	}
 
 }
