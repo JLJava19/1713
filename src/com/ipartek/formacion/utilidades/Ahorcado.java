@@ -1,6 +1,12 @@
 package com.ipartek.formacion.utilidades;
 
 import java.util.Scanner;
+/**
+ * Juego del ahorcado
+ * curso lanbide
+ * @author Jose
+ *
+ */
 
 public class Ahorcado {
 	public static final int INTENTOS = 7;
