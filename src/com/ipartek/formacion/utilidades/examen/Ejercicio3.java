@@ -1,7 +1,7 @@
 package com.ipartek.formacion.utilidades.examen;
 
-//import java.text.DecimalFormat;
-//import java.text.NumberFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 /**
@@ -14,41 +14,44 @@ import java.util.Scanner;
  *
  */
 public class Ejercicio3 {
-
+	// Array de 10 números llamado DATOS
+	final static int MAX_NUMEROS = 10;
+	static int[] aNumeros = new int[MAX_NUMEROS];
+	
 	public static void main(String[] args) {
-		// Array de 10 números llamado DATOS
-		int[] datos = new int[10];
+		
 		int contador = 0;
 		int sumaArray = 0;
 		float resultadoMedia;
 		
-		//NumberFormat formateado = new DecimalFormat("#0.00");  
+		NumberFormat formateado = new DecimalFormat("#.##");  
 		
 		Scanner sc = new Scanner(System.in);
 
 		do {
 			
 			System.out.println("Escribe un numero \n");
-			datos[contador] = Integer.parseInt(sc.next());
+			aNumeros[contador] = Integer.parseInt(sc.next());
 
 			contador += 1;
 			
-		} while (contador < datos.length);
+		} while (contador < aNumeros.length);
 
 		// Múltiplos de 7
-		for (int i = 0; i < datos.length; i++) {
+		for (int i = 0; i < aNumeros.length; i++) {
 
-			if (datos[i] % 7 == 0) {
-				System.out.printf("El número %d es múltiplo de 7 \n", datos[i]);
+			if (aNumeros[i] % 7 == 0) {
+				System.out.printf("El número %d es múltiplo de 7 \n", aNumeros[i]);
 			}
 
-			sumaArray += datos[i];
+			sumaArray += aNumeros[i];
 		}
 		
-		resultadoMedia = ((float) Math.round(sumaArray * 100) / 100) / datos.length;
+		resultadoMedia = ((float) Math.round(sumaArray * 100) / 100) / aNumeros.length;
 		
 		System.out.printf("La media es %.2f", resultadoMedia);
-		//System.out.println(formateado.format(4.0));
+		System.out.printf("\n\n\n");
+		System.out.println(formateado.format(resultadoMedia));
 		sc.close();
 	}
 
