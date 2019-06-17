@@ -11,6 +11,8 @@ import java.util.Scanner;
  */
 public class Ejercicio2 {
 
+	final static int PUNTUACION = 70;
+	
 	public static void main(String[] args) {
 
 		int puntuacion = 0;
@@ -33,12 +35,12 @@ public class Ejercicio2 {
 	/**
 	 * Función GANAR
 	 * 
-	 * @param puntos - Los puntos obtenidos en el campeonato
-	 * @return boolean
+	 * @param puntos int - Los puntos obtenidos en el campeonato
+	 * @return true si puntos >= PUNTUACION, else false
 	 */
 	static boolean ganar(int puntos) {
 		boolean resultado = false;
-		if (puntos >= 70)
+		if (puntos >= PUNTUACION)
 			resultado = true;
 		return resultado;
 	}
