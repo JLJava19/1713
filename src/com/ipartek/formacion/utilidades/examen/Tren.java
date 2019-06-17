@@ -9,13 +9,16 @@ package com.ipartek.formacion.utilidades.examen;
 
 public class Tren {
 
+	private static final int CAPACIDAD_MAXIMA = 400;
+	private static final int EDAD_MAXIMA = 40;
+
 	private int tipo;
 	private int referencia;
 	private int asientosOcupados;
 	private int anosActivo;
 
-	//Constructores
-	
+	// Constructores
+
 	public Tren() {
 		super();
 	}
@@ -27,9 +30,9 @@ public class Tren {
 		this.asientosOcupados = asientosOcupados;
 		this.anosActivo = anosActivo;
 	}
-	
-	//Métodos
-	
+
+	// Métodos
+
 	public int getTipo() {
 		return tipo;
 	}
@@ -62,33 +65,38 @@ public class Tren {
 		this.anosActivo = anosActivo;
 	}
 
+	/**
+	 * 
+	 * 
+	 * @see CAPACIDAD_MAXIMA
+	 * @return true si el tren esta lleno
+	 */
+
 	public boolean estaLleno() {
 		boolean lleno = false;
 
-		if (getAsientosOcupados() >= 400) {
+		if (getAsientosOcupados() >= CAPACIDAD_MAXIMA) {
 			lleno = true;
 		}
 
 		return lleno;
 	}
-	
+
 	public String demasiadoViejo() {
-		String mensaje="";
-		
-		if (getAnosActivo() >=40) {
+		String mensaje = "";
+
+		if (getAnosActivo() >= EDAD_MAXIMA) {
 			mensaje = "FUERA DE CIRCULACIÓN";
-		}else {
+		} else {
 			mensaje = "EN CIRCULACIÓN";
 		}
-		
+
 		return mensaje;
 	}
 
-
 	public String mostrar() {
-		return "Tren [tipo=" + getTipo() + ", referencia=" + getReferencia() + ", asientosOcupados=" + getAsientosOcupados()
-				+ ", anosActivo=" + getAnosActivo() + "]";
+		return "Tren [tipo=" + getTipo() + ", referencia=" + getReferencia() + ", asientosOcupados="
+				+ getAsientosOcupados() + ", anosActivo=" + getAnosActivo() + "]";
 	}
-	
-	
+
 }
