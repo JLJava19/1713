@@ -21,6 +21,11 @@ public class Ahorcado {
 		}
 	}
 
+	/**
+	 * 
+	 * @param caracter
+	 * @return true si se encuentra el caracter en el array
+	 */
 	private boolean comprobrarCaracter(char caracter) {
 
 		boolean encontrado = false;
@@ -38,6 +43,11 @@ public class Ahorcado {
 		return encontrado;
 	}
 
+	
+	/**
+	 * 
+	 * @return string con los caracteres que se han acertado
+	 */
 	private String mostrarResultado() {
 		String palabra = "";
 
