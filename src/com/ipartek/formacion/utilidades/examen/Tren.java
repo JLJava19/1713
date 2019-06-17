@@ -86,8 +86,8 @@ public class Tren {
 
 
 	public String mostrar() {
-		return "Tren [tipo=" + tipo + ", referencia=" + referencia + ", asientosOcupados=" + asientosOcupados
-				+ ", anosActivo=" + anosActivo + "]";
+		return "Tren [tipo=" + getTipo() + ", referencia=" + getReferencia() + ", asientosOcupados=" + getAsientosOcupados()
+				+ ", anosActivo=" + getAnosActivo() + "]";
 	}
 	
 	

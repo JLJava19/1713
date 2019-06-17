@@ -40,7 +40,7 @@ public class Ejercicio4 {
 		
 		System.out.println(t1.demasiadoViejo());
 
-		t1.mostrar();
+		System.out.println(t1.mostrar());
 
 		sc.close();
 	}
