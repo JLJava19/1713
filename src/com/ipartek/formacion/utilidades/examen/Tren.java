@@ -81,7 +81,11 @@ public class Tren {
 
 		return lleno;
 	}
-
+	
+	/**
+	 * @see EDAD_MAXIMA
+	 * @return true si el los años es mayor a EDAD_MAXIMA
+	 */
 	public boolean demasiadoViejo() {
 		/*
 		String mensaje = "";
