@@ -127,6 +127,6 @@ public class Alumno {
 	
 	// ranking
 
-	// switch case
+
 
 }
