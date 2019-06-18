@@ -9,11 +9,11 @@ package com.ipartek.formacion.utilidades.examen;
 
 public class Tren {
 
-	private static final int CAPACIDAD_MAXIMA = 400;
-	private static final int EDAD_MAXIMA = 40;
+	static final int CAPACIDAD_MAXIMA = 400;
+	static final int EDAD_MAXIMA = 40;
 
-	private int tipo;
-	private int referencia;
+	private String tipo;
+	private String referencia;
 	private int asientosOcupados;
 	private int anosActivo;
 
@@ -23,7 +23,7 @@ public class Tren {
 		super();
 	}
 
-	public Tren(int tipo, int referencia, int asientosOcupados, int anosActivo) {
+	public Tren(String tipo, String referencia, int asientosOcupados, int anosActivo) {
 		super();
 		this.tipo = tipo;
 		this.referencia = referencia;
@@ -33,19 +33,19 @@ public class Tren {
 
 	// Métodos
 
-	public int getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(int tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
-	public int getReferencia() {
+	public String getReferencia() {
 		return referencia;
 	}
 
-	public void setReferencia(int referencia) {
+	public void setReferencia(String referencia) {
 		this.referencia = referencia;
 	}
 
@@ -82,7 +82,8 @@ public class Tren {
 		return lleno;
 	}
 
-	public String demasiadoViejo() {
+	public boolean demasiadoViejo() {
+		/*
 		String mensaje = "";
 
 		if (getAnosActivo() >= EDAD_MAXIMA) {
@@ -92,6 +93,15 @@ public class Tren {
 		}
 
 		return mensaje;
+		*/
+		
+		boolean jubilado = false;
+
+		if (getAnosActivo() >= EDAD_MAXIMA) {
+			jubilado = true;
+		}
+
+		return jubilado;
 	}
 
 	public String mostrar() {

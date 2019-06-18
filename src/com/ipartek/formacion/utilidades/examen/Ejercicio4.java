@@ -12,17 +12,17 @@ public class Ejercicio4 {
 
 	public static void main(String[] args) {
 		// Variables
-		int tipo = 0;
-		int referencia = 0;
+		String tipo = "";
+		String referencia = "";
 		int numeroAsientos = 0;
 		int anosActivo = 0;
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Tipo de tren \n");
-		tipo = Integer.parseInt(sc.next());
+		tipo = sc.nextLine();
 
 		System.out.println("Referencia \n");
-		referencia = Integer.parseInt(sc.next());
+		referencia = sc.nextLine();
 
 		System.out.println("Numero de asientos \n");
 		numeroAsientos = Integer.parseInt(sc.next());
@@ -38,8 +38,13 @@ public class Ejercicio4 {
 			System.out.println("Hay plazas disponibles");
 		}
 		
-		System.out.println(t1.demasiadoViejo());
-
+		//System.out.println(t1.demasiadoViejo());
+		if (t1.demasiadoViejo()) {
+			System.out.println("FUERA DE CIRCULACIÓN");
+		}else {
+			System.out.println("EN CIRCULACIÓN");
+		}
+		
 		System.out.println(t1.mostrar());
 
 		sc.close();
