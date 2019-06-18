@@ -9,10 +9,12 @@ public class Aula {
 		// Declarar array con nombre alumnos
 
 		String[] nombres = new String[3];
-		// String[] nombres2 = {"Mounir", "Andoni", "Asier", "Jon C", "Arkaitz", "Aritz", "Manuel", "Eduardo", "Eder i", "Eder S", "Gaizka", "Borja", "Verónica", "Jon A", "Jose Luis"};
+		/* String[] nombres2 = {"Mounir", "Andoni", "Asier", "Jon C", 
+		"Arkaitz", "Aritz", "Manuel", "Eduardo", "Eder i", "Eder S", 
+		"Gaizka", "Borja", "Verónica", "Jon A", "Jose Luis"};
 		nombres[0] = "Pepe";
 		nombres[1] = "Juan";
-		nombres[2] = "Ander";
+		nombres[2] = "Ander";*/
 
 		int numero = (int) (Math.random() * nombres.length);
 		System.out.println("El voluntario es " + numero);
