@@ -9,7 +9,7 @@ public class Youtube {
 	private static final int LONGITUD_CODIGO = 11;
 	private static final int LONGITUD_MIN_TITULO = 2;
 	private static final int LONGITUD_MAX_TITULO = 150;
-	private static final String URL = "https://www.youtube.com/watch?v=";
+	static final String URL = "https://www.youtube.com/watch?v=";
 	// Propiedades
 	
 	private String titulo;
@@ -34,6 +34,12 @@ public class Youtube {
 		return titulo;
 	}
 	
+	/**
+	 * cambia titulo
+	 * 
+	 * @param titulo String nuevo titulo
+	 * @throws Exception si titulo != null && titulo.length() >= LONGITUD_MIN_TITULO && titulo.length() <= LONGITUD_MAX_TITULO 
+	 */
 	public void setTitulo(String titulo) throws Exception {
 		if ( titulo != null && titulo.length() >= LONGITUD_MIN_TITULO && titulo.length() <= LONGITUD_MAX_TITULO ) {
 			this.titulo = titulo;
@@ -58,8 +64,16 @@ public class Youtube {
 	public int getReproducciones() {
 		return reproducciones;
 	}
-	public void setReproducciones(int reproducciones) {
-		this.reproducciones = reproducciones;
+	public void setReproducciones(int reproducciones) throws Exception {
+		
+
+		if (reproducciones >= 0) {
+			this.reproducciones = reproducciones;
+		} else {
+			throw new Exception("Error, no se puede introducir valores negativos o igual a 0");
+		}
+
+		
 	}
 	
 	
