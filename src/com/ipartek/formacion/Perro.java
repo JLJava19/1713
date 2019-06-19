@@ -3,8 +3,11 @@ package com.ipartek.formacion;
 public class Perro {
 	
 	// atributos privados para encapsular
+	//public String chip;
+	String chip;  //packaged o friendly
 	private String nombre;
-	private String raza;
+	//private String raza;
+	protected String raza;
 	private int edad;
 	private boolean vacunado;
 	
@@ -67,6 +70,10 @@ public class Perro {
 	}
 	public void setVacunado(boolean vacunado) {
 		this.vacunado = vacunado;
+	}
+	
+	public void ladrar() {
+		System.out.println("Guau guau");
 	}
 	
 	@Override
