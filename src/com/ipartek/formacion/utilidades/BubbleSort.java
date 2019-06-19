@@ -1,6 +1,5 @@
 package com.ipartek.formacion.utilidades;
 
-import org.hamcrest.core.IsNull;
 
 /**
  * 
@@ -47,7 +46,7 @@ public class BubbleSort {
 			
 			matrizOrdenada = matriz;
 		} catch (ArrayIndexOutOfBoundsException e) {
-			// TODO: handle exception
+			
 			throw new Exception("Solo puedes pasar un array de maximo 10 elementos");
 		}
 		

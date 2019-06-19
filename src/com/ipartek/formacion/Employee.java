@@ -16,7 +16,7 @@ public class Employee extends Person {
 	
 	public Employee() {
 		super(); // Llama al contructor de Person()
-		// TODO Auto-generated constructor stub
+		
 		this.numero = 0;
 		this.fechaContrato = new Date();
 		this.salario = SALARIO_MINIMO;
@@ -26,7 +26,7 @@ public class Employee extends Person {
 
 	public Employee(String nombre, int edad, char sexo, int numero, Date fechaContrato, float salario) {
 		super(nombre, edad, sexo);
-		// TODO Auto-generated constructor stub
+		
 		this.numero = numero;
 		this.fechaContrato = fechaContrato;
 		this.salario = salario;

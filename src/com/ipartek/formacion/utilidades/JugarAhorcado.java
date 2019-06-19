@@ -1,6 +1,5 @@
 package com.ipartek.formacion.utilidades;
 
-import java.util.Scanner;
 
 public class JugarAhorcado {
 

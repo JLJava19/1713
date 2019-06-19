@@ -1,12 +1,9 @@
 package com.ipartek.formacion.ejercicios.basicos.estructura.iterativa;
 
-import java.util.Scanner;
-
 public class Ejercicio1 {
 
 	public static void main(String[] args) {
 		
-		int numero = 0;
 		int suma = 0;
 		int i = 0;
 		

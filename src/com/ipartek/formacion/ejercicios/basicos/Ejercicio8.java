@@ -15,7 +15,7 @@ package com.ipartek.formacion.ejercicios.basicos;
 public class Ejercicio8 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		
 		
 		
@@ -37,7 +37,7 @@ public class Ejercicio8 {
 		float numero2 = (float) 4.13378972;
 		float numero3 = 3;
 		
-		double numeroDoble = 4.13378972;
+		//double numeroDoble = 4.13378972;
 		
 		System.out.printf("Numero formateado con 2 decimales %.2f \n", numero);
 		System.out.printf("Numero formateado con 2 decimales %.2f \n", numero2);

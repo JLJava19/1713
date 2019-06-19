@@ -2,6 +2,7 @@ package com.ipartek.formacion;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Aula2 {
 
@@ -11,6 +12,8 @@ public class Aula2 {
 	
 	public static void main(String[] args) {
 
+		Scanner sc = new Scanner(System.in);
+		
 		// Declarar array con nombre alumnos
 
 		
@@ -25,8 +28,8 @@ public class Aula2 {
 		}
 
 		// Mostrar el menu
-		menuAlumnos();
-
+		System.out.println(menuAlumnos());
+		seleccionarOpcion(Integer.parseInt(sc.nextLine()), aAlumnos);
 		// Generar numero aleatorio
 		Random rand = new Random();
 		int n = rand.nextInt(3);
@@ -70,6 +73,7 @@ public class Aula2 {
 			break;
 		case 4:
 			iVoluntarioAnterior=buscarVoluntario(aAlumnos, iVoluntarioAnterior);
+			menuAlumnos();
 			break;
 		case 5:
 			// Salir ??????????

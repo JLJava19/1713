@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Ejercicio2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		boolean bandera;
 		Scanner sc = new Scanner(System.in);
 		
@@ -73,7 +73,6 @@ public class Ejercicio2 {
 		try {
 			resultado = n1 / n2;
 		} catch (ArithmeticException e) {
-			// TODO: handle exception
 			System.out.println("Error de aritmetica");
 		}
 		

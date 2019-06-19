@@ -25,7 +25,7 @@ public class Person {
 	
 	public Person() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 		this.nombre = "anonimo";
 		this.edad = 18;
 		this.altura = 0;

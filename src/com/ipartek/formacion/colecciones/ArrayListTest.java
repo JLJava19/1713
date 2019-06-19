@@ -85,14 +85,14 @@ public class ArrayListTest {
 		paises.add("Korea la buena");
 		paises.add("Barakaldo");
 		
-		// TODO mirar como ordeanar alfabeticamente
+		// Ordenar alfabeticamente
 		Collections.sort(paises);
 		
 		assertEquals("Barakaldo", paises.get(0));
 		assertEquals("EEUU", paises.get(1));
 		assertEquals("Korea la buena", paises.get(2));
 		
-		// SOLO despues de usarel sort
+		// SOLO despues de usar el sort
 		Collections.reverse(paises);
 		assertEquals("Barakaldo", paises.get(2));
 		assertEquals("EEUU", paises.get(1));

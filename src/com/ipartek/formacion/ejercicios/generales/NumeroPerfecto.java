@@ -1,12 +1,10 @@
 package com.ipartek.formacion.ejercicios.generales;
 
-import java.util.Scanner;
 
 public class NumeroPerfecto {
 
 	public static void main(String[] args) {
-		
-		int numero = 0;
+
 		int suma = 0;
 		int i = 0;
 		

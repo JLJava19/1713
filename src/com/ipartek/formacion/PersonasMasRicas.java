@@ -1,13 +1,11 @@
 package com.ipartek.formacion;
 
 import java.text.DecimalFormat;
-import java.util.Currency;
-import java.util.Date;
 
 public class PersonasMasRicas {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 		Person p1 = new Person();
 		System.out.println(p1);

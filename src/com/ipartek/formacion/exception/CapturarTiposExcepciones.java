@@ -28,13 +28,10 @@ public class CapturarTiposExcepciones {
 			
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
-			// TODO: handle exception
 			System.out.println("Fuera de array");	
 		} catch (PerroException e) {
-			// TODO: handle exception
 			System.out.println("PerroException Null");
 		} catch (NullPointerException e) {
-			// TODO: handle exception
 			System.out.println("Excepcion Null");	
 		} catch (Exception e) {
 			// Este catch siempre el ultimo

@@ -1,6 +1,8 @@
 package com.ipartek.formacion;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -8,8 +10,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import com.ipartek.formacion.utilidades.examen.Tren;
 
 public class YoutubeTest {
 	Youtube yt;
@@ -37,32 +37,36 @@ public class YoutubeTest {
 
 	@Test
 	public void testYoutube() throws Exception {
-
+		Youtube yNull;
+		
 		assertEquals(TITULO, yt.getTitulo());
 		assertEquals(CODIGO, yt.getCodigo());
 		assertEquals(0, yt.getReproducciones());
 		
 		try {
-			Youtube yNull = new Youtube(null, null);
+			yNull = new Youtube(null, null);
 			fail("Constructor con NULLS, error controlado");
 		} catch (Exception e) {
 			//Para asegurarnos que entra por aquí
+			yNull=null;
 			assertTrue(true);
 		}
 		
 		try {
-			Youtube yNull = new Youtube(TITULO, "11");
+			yNull = new Youtube(TITULO, "11");
 			fail("Codigo <> 11");
 		} catch (Exception e) {
 			//Para asegurarnos que entra por aquí
+			yNull=null;
 			assertTrue(true);
 		}
 		
 		try {
-			Youtube yNull = new Youtube(" ", CODIGO);
+			yNull = new Youtube(" ", CODIGO);
 			fail("Título incorrecto");
 		} catch (Exception e) {
 			//Para asegurarnos que entra por aquí
+			yNull=null;
 			assertTrue(true);
 		}
 
