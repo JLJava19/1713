@@ -11,122 +11,48 @@ package com.ipartek.formacion;
  * edad 18, altura 0,peso 0, ojos marrone sexp i Sobreescribir contructor para
  * poder crear una persona para indicar nombrem, edad y sexo
  */
-public class Alumno {
+public class Alumno extends Person implements Comparable<Alumno> {
 
 	// atributos
-	private String nombre;
-	private int edad;
-	private float altura; // 1.70 metros
-	private float peso; // 50.5 kg
-	private String ojos; // color
-	private char sexo; // 'h' hombre 'm' mujer 'i' indefinido
+	private int numVecesLeer;
 
 	public Alumno() {
 		super();
-		// Auto-generated constructor stub
-		this.nombre = "anonimo";
-		this.edad = 18;
-		this.altura = 0;
-		this.peso = 0;
-		this.ojos = "marrones";
-		this.sexo = 'i';
+		this.numVecesLeer = 0;
 	}
-
+	
+	public Alumno(String nombre) {
+		super(nombre);
+	}
+	
 	public Alumno(String nombre, int edad, float altura, float peso, String ojos, char sexo) {
-		super();
-		this.nombre = nombre;
-		this.edad = edad;
-		this.altura = altura;
-		this.peso = peso;
-		this.ojos = ojos;
-		this.sexo = sexo;
+		super(nombre, edad, altura, peso, ojos, sexo);
+		this.numVecesLeer = 0;
+
 	}
 
 	public Alumno(String nombre, int edad, char sexo) {
-		// super();
-		this(); // Llama al constructor Person() sin los parametros primero
-		this.nombre = nombre;
-		this.edad = edad;
-		this.sexo = sexo;
-	}
-
-	public String saludar() {
-
-		return "Hola me llamo " + this.nombre;
-	}
-
-	public String getNombre() {
-
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		if (nombre == null) {
-			this.nombre = "Sin nombre";
-		} else {
-			this.nombre = nombre;
-		}
+		super(nombre, edad, sexo);
+		this.numVecesLeer = 0;
 
 	}
 
-	public int getEdad() {
-		return edad;
+	public int getNumVecesLeer() {
+		return numVecesLeer;
 	}
 
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
-
-	public float getAltura() {
-		return altura;
-	}
-
-	public void setAltura(float altura) {
-		this.altura = altura;
-	}
-
-	public float getPeso() {
-		return peso;
-	}
-
-	public void setPeso(float peso) {
-		this.peso = peso;
-	}
-
-	public String getOjos() {
-		return ojos;
-	}
-
-	public void setOjos(String ojos) {
-		this.ojos = ojos;
-	}
-
-	public char getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(char sexo) {
-		this.sexo = sexo;
+	public void setNumVecesLeer(int numVecesLeer) {
+		this.numVecesLeer = numVecesLeer;
 	}
 
 	@Override
 	public String toString() {
-		return "Alumno [nombre=" + nombre + ", edad=" + edad + ", altura=" + altura + ", peso=" + peso + ", ojos="
-				+ ojos + ", sexo=" + sexo + "]";
+		return super.toString() + "Alumno [numVecesLeer=" + numVecesLeer + "]";
 	}
 
-	// Listar Alumnos
-	
-	// public
-
-	// crear alumno
-
-	// Eliminar Alumno
-
-	// Buscar voluntario, no puede ser el anterior
-	
-	// ranking
-
-
+	@Override
+	public int compareTo(Alumno o) {
+		return o.getNumVecesLeer() - this.numVecesLeer;
+	}
 
 }

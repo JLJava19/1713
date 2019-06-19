@@ -11,7 +11,7 @@ package com.ipartek.formacion;
 * Sobreescribir contructor para poder crear una persona para indicar nombrem, edad 
 * y sexo
 */
-public class Person {
+public class Person implements IAmigable{
 
 	// atributos
 	private String nombre;
@@ -34,6 +34,12 @@ public class Person {
 		this.sexo = 'i';
 	}
 	
+	public Person(String nombre) {
+		super();
+		
+		this.setNombre(nombre);;
+
+	}
 	
 
 	public Person(String nombre, int edad, float altura, float peso, String ojos, char sexo) {
@@ -134,6 +140,11 @@ public class Person {
 	public String toString() {
 		return "Person [nombre=" + nombre + ", edad=" + edad + ", altura=" + altura + ", peso=" + peso + ", ojos="
 				+ ojos + ", sexo=" + sexo + "]";
+	}
+
+	@Override
+	public String despedir() {
+		return "Agur";
 	}
 	
 	
