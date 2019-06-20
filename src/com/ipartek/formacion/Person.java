@@ -14,6 +14,7 @@ package com.ipartek.formacion;
 public class Person implements IAmigable{
 
 	// atributos
+	private int id;
 	private String nombre;
 	private int edad;
 	private float altura; // 1.70 metros
@@ -26,6 +27,7 @@ public class Person implements IAmigable{
 	public Person() {
 		super();
 		
+		this.setId(-1);
 		this.nombre = "anonimo";
 		this.edad = 18;
 		this.altura = 0;
@@ -44,6 +46,7 @@ public class Person implements IAmigable{
 
 	public Person(String nombre, int edad, float altura, float peso, String ojos, char sexo) {
 		super();
+		this.setId(-1);
 		this.nombre = nombre;
 		this.edad = edad;
 		this.altura = altura;
@@ -57,6 +60,7 @@ public class Person implements IAmigable{
 	public Person(String nombre, int edad, char sexo) {
 		//super();
 		this();	// Llama al constructor Person() sin los parametros primero
+		this.setId(-1);
 		this.nombre = nombre;
 		this.edad = edad;
 		this.sexo = sexo;
@@ -145,6 +149,14 @@ public class Person implements IAmigable{
 	@Override
 	public String despedir() {
 		return "Agur";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

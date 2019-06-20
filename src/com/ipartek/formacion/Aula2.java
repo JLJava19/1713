@@ -1,6 +1,7 @@
 package com.ipartek.formacion;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -171,6 +172,15 @@ public class Aula2 {
 	 */
 
 	public static String listarAlumnos() {
+		
+		// Primero lo ordena por nombre
+		Collections.sort(aAlumnos, new ComparatorNombre());
+		
+		// Lo ordena por numero de veces que ha salido
+		Collections.sort(aAlumnos);
+				
+
+		
 		String listadoAlumnos = "****** Listado de alumnos ******\n";
 		for (int i = 0; i < aAlumnos.size(); i++) {
 
