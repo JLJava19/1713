@@ -1,9 +1,7 @@
 package com.ipartek.formacion;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.Scanner;
 
 import com.ipartek.formacion.Alumno;
@@ -15,6 +13,7 @@ public class AppVoluntarios {
 	final static int OPCION_CREAR = 2;
 	final static int OPCION_BORRAR = 3;
 	final static int OPCION_VOLUNTARIO = 4;
+	final static int OPCION_MODIFICAR = 5;
 	final static int OPCION_SALIR = 0;
 
 	static int iVoluntarioAnterior = 0;
@@ -27,7 +26,7 @@ public class AppVoluntarios {
 	public static void main(String[] args) {
 
 		sc = new Scanner(System.in);
-		dao = new DAOAlumnoArrayList();
+		dao = DAOAlumnoArrayList.getInstance();
 
 		// dao.getById(id)
 
@@ -50,8 +49,12 @@ public class AppVoluntarios {
 				borrar();
 				break;
 
+			case OPCION_MODIFICAR:
+				modificar();
+				break;
+
 			case OPCION_VOLUNTARIO:
-				voluntario(iVoluntarioAnterior);
+				voluntario();
 				break;
 
 			default:
@@ -60,24 +63,58 @@ public class AppVoluntarios {
 
 		} while (opcionSeleccionada != OPCION_SALIR);
 
-		System.out.println("Agur Venur");
+		System.out.println("Hasta la próxima!!!");
 
 		sc.close();
 
 	}
 
-	private static void voluntario(int anterior) {
+	private static void modificar() {
+		try {
+			int id = 0;
+
+			System.out.println("Id");
+			id = Integer.parseInt(sc.nextLine());
+
+			Alumno aModificar = new Alumno();
+			aModificar = dao.getById(id);
+
+			// persistir a traves del dao
+			if (aModificar != null) {
+
+				String nuevoNombre = "";
+				System.out.println("Nuevo nombre de " + dao.getById(id).getNombre());
+				nuevoNombre = sc.nextLine();
+				aModificar.setNombre(nuevoNombre);
+
+				dao.update(aModificar);
+
+				System.out.println("Alumno modificado satisfactoriamente");
+			} else {
+				System.out.println("No se ha encontrado el alumno");
+			}
+		} catch (Exception e) {
+			System.out.println("Introduce un valor numerico en id");
+			modificar();
+		}
+
+	}
+
+	private static void voluntario() {
 		int iVoluntario = 0;
 
 		do {
 			iVoluntario = (int) (Math.random() * dao.getAll().size());
-		} while (iVoluntario == anterior);
+		} while (iVoluntario == iVoluntarioAnterior);
 
 		iVoluntarioAnterior = iVoluntario;
-		System.out.println("El voluntario es " + dao.getAll().get(iVoluntario).getNombre());
 
-		int sumaVeces = dao.getAll().get(iVoluntario).getNumVecesLeer();
-		dao.getAll().get(iVoluntario).setNumVecesLeer(sumaVeces + 1);
+		Alumno aVoluntario = new Alumno();
+		aVoluntario = dao.getAll().get(iVoluntario);
+		System.out.println("El voluntario es " + aVoluntario.getNombre());
+
+		int sumaVeces = aVoluntario.getNumVecesLeer();
+		aVoluntario.setNumVecesLeer(sumaVeces + 1);
 
 	}
 
@@ -128,9 +165,10 @@ public class AppVoluntarios {
 		System.out.println("-----------------------------");
 		System.out.println("-----Listado de Alumnos------");
 		System.out.println("-----------------------------");
-
+		System.out.println("Nº Veces\tId\tNombre");
+		
 		for (Alumno alumno : dao.getAll()) {
-			System.out.println("   N� Veces: " + alumno.getNumVecesLeer() + " " + alumno.getNombre());
+			System.out.println(" " + alumno.getNumVecesLeer() + "\t\t" + alumno.getId() + "\t" + alumno.getNombre());
 		}
 
 	}
@@ -142,6 +180,7 @@ public class AppVoluntarios {
 		System.out.println("  2 Crear");
 		System.out.println("  3 Eliminar");
 		System.out.println("  4 Voluntario");
+		System.out.println("  5 Modificar");
 		System.out.println("-------------------------------");
 		System.out.println("  0 para salir");
 		System.out.println("-------------------------------");

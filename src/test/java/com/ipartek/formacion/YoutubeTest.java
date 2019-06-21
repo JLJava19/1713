@@ -37,6 +37,7 @@ public class YoutubeTest {
 
 	@Test
 	public void testYoutube() throws Exception {
+		@SuppressWarnings("unused")
 		Youtube yNull;
 		
 		assertEquals(TITULO, yt.getTitulo());
@@ -47,7 +48,7 @@ public class YoutubeTest {
 			yNull = new Youtube(null, null);
 			fail("Constructor con NULLS, error controlado");
 		} catch (Exception e) {
-			//Para asegurarnos que entra por aquí
+			//Para asegurarnos que entra por aquï¿½
 			yNull=null;
 			assertTrue(true);
 		}
@@ -56,16 +57,16 @@ public class YoutubeTest {
 			yNull = new Youtube(TITULO, "11");
 			fail("Codigo <> 11");
 		} catch (Exception e) {
-			//Para asegurarnos que entra por aquí
+			//Para asegurarnos que entra por aquï¿½
 			yNull=null;
 			assertTrue(true);
 		}
 		
 		try {
 			yNull = new Youtube(" ", CODIGO);
-			fail("Título incorrecto");
+			fail("Tï¿½tulo incorrecto");
 		} catch (Exception e) {
-			//Para asegurarnos que entra por aquí
+			//Para asegurarnos que entra por aquï¿½
 			yNull=null;
 			assertTrue(true);
 		}
@@ -80,7 +81,7 @@ public class YoutubeTest {
 		}catch (Exception e) {
 			
 		}
-		yt = new Youtube("Un título", CODIGO);
+		yt = new Youtube("Un tï¿½tulo", CODIGO);
 		
 
 	}

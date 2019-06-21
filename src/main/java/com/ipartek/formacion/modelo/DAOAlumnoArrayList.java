@@ -1,16 +1,32 @@
 package com.ipartek.formacion.modelo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import com.ipartek.formacion.Alumno;
 
+//public class DAOAlumnoArrayList implements IPersistible<Alumno>, ISingletonable<DAOAlumnoArrayList> {
 public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 
+	private static DAOAlumnoArrayList INSTANCE;
 	private ArrayList<Alumno> lista;
 
-	public DAOAlumnoArrayList() {
+	/**
+	 * Encargado de devolver solo 1 objeto, patron singleton
+	 * 
+	 * @return
+	 */
+	public static synchronized DAOAlumnoArrayList getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new DAOAlumnoArrayList();
+		}
+		return INSTANCE;
+	}
+
+	/**
+	 * Privado para que nadie pueda crear objetos
+	 */
+	private DAOAlumnoArrayList() {
 		super();
 		lista = new ArrayList<Alumno>();
 		lista.add(new Alumno(12, "Antton"));
@@ -39,13 +55,13 @@ public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 
 	@Override
 	public boolean insert(Alumno pojo) {
-		
+
 		return lista.add(pojo);
 	}
 
 	@Override
 	public boolean delete(int id) {
-		
+
 		return lista.remove(this.getById(id));
 
 	}
@@ -60,6 +76,7 @@ public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 				encontrado = true;
 				break;
 			}
+
 		}
 
 		return encontrado;

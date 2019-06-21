@@ -1,5 +1,7 @@
 package com.ipartek.formacion;
 
+import java.io.Serializable;
+
 /**
  *  
  * @author Curso
@@ -11,8 +13,12 @@ package com.ipartek.formacion;
 * Sobreescribir contructor para poder crear una persona para indicar nombrem, edad 
 * y sexo
 */
-public class Person implements IAmigable{
+public class Person implements IAmigable, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// atributos
 	private int id;
 	private String nombre;

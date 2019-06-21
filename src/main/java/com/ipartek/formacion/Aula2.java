@@ -2,7 +2,7 @@ package com.ipartek.formacion;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
+//import java.util.Random;
 import java.util.Scanner;
 
 public class Aula2 {
@@ -25,7 +25,7 @@ public class Aula2 {
 		int opcionSeleccionada = 5;
 
 		String[] nombres = { "Mounir", "Andoni", "Asier", "Jon C", "Arkaitz", "Aritz", "Manuel", "Eduardo", "Eder i",
-				"Eder S", "Gaizka", "Borja", "Verónica", "Jon A", "Jose Luis" };
+				"Eder S", "Gaizka", "Borja", "Verï¿½nica", "Jon A", "Jose Luis" };
 
 		// Crear los alumnos
 		for (int i = 0; i < nombres.length; i++) {
@@ -40,11 +40,10 @@ public class Aula2 {
 			try {
 				opcionSeleccionada = Integer.parseInt(sc.nextLine());
 				seleccionarOpcion(opcionSeleccionada);
-			}catch(Exception NumberFormatException) {
+			} catch (Exception NumberFormatException) {
 				System.out.println("MALLLLLLL, ADIOS");
 			}
-			
-			
+
 		} while (opcionSeleccionada != OPCION_SALIR);
 		/*
 		 * // Generar numero aleatorio Random rand = new Random(); int n =
@@ -67,7 +66,7 @@ public class Aula2 {
 		String l3 = "3.- Eliminar Alumno \n";
 		String l4 = "4.- Buscar Voluntario \n";
 		String l5 = "5.- SALIR \n\n";
-		String l6 = "Seleccione una opción \n";
+		String l6 = "Seleccione una opciï¿½n \n";
 		return l1 + l2 + l3 + l4 + l5 + l6;
 	}
 
@@ -123,12 +122,9 @@ public class Aula2 {
 	private static void crearAlumno() {
 
 		String nombre;
-		int edad;
-		float altura;
-		float peso;
-		String ojos;
-		char sexo;
-
+		/*
+		 * int edad; float altura; float peso; String ojos; char sexo;
+		 */
 		System.out.println("El nombre: \n");
 		nombre = sc.nextLine();
 		/*
@@ -172,15 +168,13 @@ public class Aula2 {
 	 */
 
 	public static String listarAlumnos() {
-		
+
 		// Primero lo ordena por nombre
 		Collections.sort(aAlumnos, new ComparatorNombre());
-		
+
 		// Lo ordena por numero de veces que ha salido
 		Collections.sort(aAlumnos);
-				
 
-		
 		String listadoAlumnos = "****** Listado de alumnos ******\n";
 		for (int i = 0; i < aAlumnos.size(); i++) {
 
