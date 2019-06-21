@@ -1,5 +1,6 @@
 package com.ipartek.formacion;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -23,7 +24,7 @@ public class AppVoluntarios {
 	static ArrayList<Alumno> lista;
 	static DAOAlumnoArrayList dao;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 
 		sc = new Scanner(System.in);
 		dao = DAOAlumnoArrayList.getInstance();
