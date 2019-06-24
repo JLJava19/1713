@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.formacion.Alumno;
+import com.ipartek.formacion.MetaDato;
 
 //public class DAOAlumnoArrayList implements IPersistible<Alumno>, ISingletonable<DAOAlumnoArrayList> {
 public class DAOAlumnoArrayList implements IPersistible<Alumno> {
@@ -24,9 +25,10 @@ public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 	 * @return
 	 * @throws IOException
 	 * @throws FileNotFoundException
-	 * @throws ClassNotFoundException 
+	 * @throws ClassNotFoundException
 	 */
-	public static synchronized DAOAlumnoArrayList getInstance() throws FileNotFoundException, IOException, ClassNotFoundException {
+	public static synchronized DAOAlumnoArrayList getInstance()
+			throws FileNotFoundException, IOException, ClassNotFoundException {
 		if (INSTANCE == null) {
 			INSTANCE = new DAOAlumnoArrayList();
 		}
@@ -38,11 +40,13 @@ public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 	 * 
 	 * @throws IOException
 	 * @throws FileNotFoundException
-	 * @throws ClassNotFoundException 
+	 * @throws ClassNotFoundException
 	 */
 	private DAOAlumnoArrayList() throws FileNotFoundException, IOException, ClassNotFoundException {
 
 		super();
+		MetaDato metaData;
+
 		lista = new ArrayList<Alumno>();
 		lista.add(new Alumno(12, "Antton"));
 		lista.add(new Alumno(45, "MAriJose"));
@@ -53,28 +57,45 @@ public class DAOAlumnoArrayList implements IPersistible<Alumno> {
 
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero));
 
+		if (lista.size() > 0) {
+			metaData = new MetaDato(lista.size());
+			oos.writeObject(metaData);
+
+		}
 		for (int i = 0; i < lista.size(); i++) {
 			// ojo, se hace un new por cada Persona. El new dentro del bucle.
 
 			oos.writeObject(lista.get(i));
 		}
-		
+
 		oos.close(); // Se cierra al terminar.
-		
+
 		// Vacio el array
 		lista.clear();
-		
+
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero));
-		
+
 		// Se lee el primer objeto
 		Object aux = ois.readObject();
-
+		int numeroObjetos = 0;
 		// Mientras haya objetos
-		while (aux != null ) {
-			if (aux instanceof Alumno)
-				System.out.println(aux); // Se escribe en pantalla el objeto
-			aux = ois.readObject();
+		if (aux instanceof MetaDato) {
+			numeroObjetos = ((MetaDato) aux).getNumeroDeObjetos();
+
+			if (numeroObjetos > 0) {
+				for (int i = 0; i < numeroObjetos; i++) {
+					lista.add((Alumno) ois.readObject());
+					//System.out.println();
+				}
+			}
 		}
+		/*
+		 * while (aux != null) { if () if (aux instanceof Alumno)
+		 * System.out.println(aux); // Se escribe en pantalla el objeto
+		 * ois.readObject();
+		 * 
+		 * }
+		 */
 		ois.close();
 	}
 

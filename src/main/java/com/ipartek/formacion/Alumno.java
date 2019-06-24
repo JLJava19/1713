@@ -1,5 +1,7 @@
 package com.ipartek.formacion;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Curso
@@ -11,8 +13,12 @@ package com.ipartek.formacion;
  * edad 18, altura 0,peso 0, ojos marrone sexo y sobreescribir contructor para
  * poder crear una persona para indicar nombrem, edad y sexo
  */
-public class Alumno extends Person implements Comparable<Alumno> {
+public class Alumno extends Person implements Comparable<Alumno>, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5641124268245454027L;
 	// atributos
 	private int numVecesLeer;
 
