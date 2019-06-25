@@ -105,43 +105,43 @@ public class AppExamen {
 				System.out.println("Desea crear un portatil (p) o sobremesa(s)");
 				opcion = sc.nextLine().charAt(0);
 			} while (opcion != 'p' || opcion != 's');
-			
+
 			Portatil p;
 			Sobremesa s;
-			
+
 			int id;
 			String nombre;
 			String placaBase;
 			int cpu;
-			
+
 			int tamanyoPantalla;
 			int bateria;
-			
+
 			String tipoTorre;
 			boolean grabadora;
-			
+
 			System.out.println("Id:");
-			id=Integer.parseInt(sc.nextLine());
+			id = Integer.parseInt(sc.nextLine());
 			System.out.println("Nombre:");
-			nombre=sc.nextLine();
+			nombre = sc.nextLine();
 			System.out.println("Placa Base:");
-			placaBase=sc.nextLine();
+			placaBase = sc.nextLine();
 			System.out.println("CpU:");
-			cpu=Integer.parseInt(sc.nextLine());
-			
-			if (opcion=='p') {
+			cpu = Integer.parseInt(sc.nextLine());
+
+			if (opcion == 'p') {
 				System.out.println("Tamaño de pantalla:");
-				tipoTorre=parseInt(sc.nextLine());
-				System.out.println("Grabadora?:");
-				grabadora=true;
-				p = new Portatil(id, nombre, placaBase, cpu, tamanyoPantalla, bateria);
-				
-			}else {
-				System.out.println("Tipo de torre:");
-				tamanyoPantalla=Integer.parseInt(sc.nextLine());
+				tamanyoPantalla = Integer.parseInt(sc.nextLine());
 				System.out.println("Bateria:");
-				bateria=Integer.parseInt(sc.nextLine());
-				s= new Sobremesa (id, nombre, placaBase, cpu, tipoTorre, grabadora);
+				bateria = Integer.parseInt(sc.nextLine());
+				p = new Portatil(id, nombre, placaBase, cpu, tamanyoPantalla, bateria);
+
+			} else {
+				System.out.println("Tipo de torre:");
+				tipoTorre = sc.nextLine();
+				System.out.println("Grabadora?:");
+				grabadora = true;
+				s = new Sobremesa(id, nombre, placaBase, cpu, tipoTorre, grabadora);
 			}
 			Alumno a = new Alumno();
 			System.out.println("Nombre");
