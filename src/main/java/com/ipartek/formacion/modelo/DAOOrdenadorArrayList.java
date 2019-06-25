@@ -55,30 +55,7 @@ public class DAOOrdenadorArrayList implements IPersistible<Object> {
 		lista.add(new Sobremesa(4, "Sobremesa 2", "Placa 4", 32, "MICRO-ATX", false));
 		lista.add(new Portatil(5, "Portatil 3", "Placa 5",  64, 17, 500));
 
-		/*
-		 * fichero = "C:\\1713\\eclipse-workspace\\1713\\personas.txt";
-		 * 
-		 * ObjectOutputStream oos = new ObjectOutputStream(new
-		 * FileOutputStream(fichero));
-		 * 
-		 * for (int i = 0; i < lista.size(); i++) { // ojo, se hace un new por cada
-		 * Persona. El new dentro del bucle.
-		 * 
-		 * oos.writeObject(lista.get(i)); }
-		 * 
-		 * oos.close(); // Se cierra al terminar.
-		 * 
-		 * // Vacio el array lista.clear();
-		 * 
-		 * ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero));
-		 * 
-		 * // Se lee el primer objeto Object aux = ois.readObject();
-		 * 
-		 * // Mientras haya objetos while (aux != null ) { if (aux instanceof Alumno)
-		 * System.out.println(aux); // Se escribe en pantalla el objeto aux =
-		 * ois.readObject(); } ois.close();
-		 * 
-		 */
+		
 		
 		
 		//desSeralizarLista();
@@ -147,7 +124,7 @@ public class DAOOrdenadorArrayList implements IPersistible<Object> {
 	}
 	
 	
-	private void serializarLista() {
+	public void serializarLista() {
 
 		try( ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME)) ){
 			oos.writeObject(lista);

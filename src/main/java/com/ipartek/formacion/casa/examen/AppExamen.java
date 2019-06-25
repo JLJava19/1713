@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-
+import com.ipartek.formacion.ComparatorNombre;
 import com.ipartek.formacion.modelo.DAOOrdenadorArrayList;
 
 //public class AppExamen implements Comparable<Ordenador>{
@@ -27,14 +27,11 @@ public class AppExamen {
 	static DAOOrdenadorArrayList dao;
 
 	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException {
-		// TODO Auto-generated method stub
+
 
 		sc = new Scanner(System.in);
 		dao = DAOOrdenadorArrayList.getInstance();
 
-		// dao.getById(id)
-
-		// dao.delete(id)
 
 		do {
 
@@ -73,12 +70,13 @@ public class AppExamen {
 	}
 
 	private static void guardarAFichero() {
-		// TODO Auto-generated method stub
+		System.out.println("Guardado en archivo.");
+		dao.serializarLista();
 		
 	}
 
 	private static void ordenarPorProcesador() {
-
+		// TODO ordenarPorProcesador
 		//ArrayList<IOrdenable> listaCPU = new ArrayList<IOrdenable>();
 		
 		//for (Object ordenador : dao.getAll()) 
@@ -92,43 +90,7 @@ public class AppExamen {
 
 	}
 
-	/*
-	 * private static void modificar() { try { int id = 0;
-	 * 
-	 * System.out.println("Id"); id = Integer.parseInt(sc.nextLine());
-	 * 
-	 * Alumno aModificar = new Alumno(); aModificar = dao.getById(id);
-	 * 
-	 * // persistir a traves del dao if (aModificar != null) {
-	 * 
-	 * String nuevoNombre = ""; System.out.println("Nuevo nombre de " +
-	 * dao.getById(id).getNombre()); nuevoNombre = sc.nextLine();
-	 * aModificar.setNombre(nuevoNombre);
-	 * 
-	 * dao.update(aModificar);
-	 * 
-	 * System.out.println("Alumno modificado satisfactoriamente"); } else {
-	 * System.out.println("No se ha encontrado el alumno"); } } catch (Exception e)
-	 * { System.out.println("Introduce un valor numerico en id"); modificar(); }
-	 * 
-	 * }
-	 * 
-	 * private static void voluntario() { int iVoluntario = 0;
-	 * 
-	 * do { iVoluntario = (int) (Math.random() * dao.getAll().size()); } while
-	 * (iVoluntario == iVoluntarioAnterior);
-	 * 
-	 * iVoluntarioAnterior = iVoluntario;
-	 * 
-	 * Alumno aVoluntario = new Alumno(); aVoluntario =
-	 * dao.getAll().get(iVoluntario); System.out.println("El voluntario es " +
-	 * aVoluntario.getNombre());
-	 * 
-	 * int sumaVeces = aVoluntario.getNumVecesLeer();
-	 * aVoluntario.setNumVecesLeer(sumaVeces + 1);
-	 * 
-	 * }
-	 */
+	
 
 	private static void crear() {
 		try {
@@ -218,17 +180,9 @@ public class AppExamen {
 	 */
 	private static void listar() {
 
-		// ordenar por ranking y nombre
-		// Collections.sort(dao.getAll(), new ComparatorNombre());
+		// ordenar por cpu
+		 //Collections.sort(dao.getAll(), new ComparadorCPU());
 
-		// Collections.sort(dao.getAll());
-		/*
-		 * int id; String placaBase; int cpu;
-		 * 
-		 * int tamanyoPantalla; int bateria;
-		 * 
-		 * String tipoTorre; boolean grabadora;
-		 */
 		String descripcionOrdenador = "";
 
 		Portatil p;
@@ -254,8 +208,7 @@ public class AppExamen {
 				}
 			}
 			System.out.println(descripcionOrdenador);
-			// System.out.println(" " + alumno.getNumVecesLeer() + "\t\t" + alumno.getId() +
-			// "\t" + alumno.getNombre());
+		
 		}
 
 	}
